@@ -1,0 +1,207 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Kink Playground - Staff Applications</title>
+		<!-- Bootstrap -->
+		<link href="file:///C|/Users/decla/Desktop/css/bootstrap-4.4.1.css" rel="stylesheet">
+		<style>
+			body {
+			background-color: #FD5457;
+			}
+		</style>
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jstimezonedetect/1.0.4/jstz.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+			  var tz = jstz.determine(); // Determines the time zone of the browser client
+			  var timezone = tz.name(); //'Asia/Kolhata' for Indian Time.
+			 document.getElementById("UserTimezone").value = timezone;
+			});
+		</script>
+		<script src="snowstorm-min.js"></script>
+		<script>
+			function setCookie(cname,cvalue,exdays) {
+			  var d = new Date();
+			  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+			  var expires = "expires=" + d.toGMTString();
+			  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+			}
+			
+			function getCookie(cname) {
+			  var name = cname + "=";
+			  var decodedCookie = decodeURIComponent(document.cookie);
+			  var ca = decodedCookie.split(';');
+			  for(var i = 0; i < ca.length; i++) {
+			    var c = ca[i];
+			    while (c.charAt(0) == ' ') {
+			      c = c.substring(1);
+			    }
+			    if (c.indexOf(name) == 0) {
+			      return c.substring(name.length, c.length);
+			    }
+			  }
+			  return "";
+			}
+			
+			function checkCookie() {
+			  var subbed=getCookie("kp_submitted");
+			  if (user != "") {
+			    window.location.href = "submitted.html";
+			  }
+			}
+			window.onload = checkCookie;
+		</script>
+	</head>
+	<body>
+		<center>
+			<br>
+			<img src="file:///C|/Users/decla/Desktop/Untitled-1.png" width="243" height="172" alt=""/>
+			<div>
+				&nbsp;
+				<font color="white">
+					<b>
+						<h1>Staff Application</h1>
+					</b>
+					<p>Welcome to the Kink Playground staff application. Please answer each question in as much detail as possible. <br>
+						The more detailed your answers, the more likely we are to progress you to the interview stage. <br>
+						Submissions are limited to once every month. Any more will result in an instant denial. <br>
+						Good luck!
+					<hr style="background-color:white;width:50%;height:2px;">
+					</p>
+				</font>
+			</div>
+			<div class="row">
+				<div class="col-xl-4"></div>
+				<div class="col-xl-4">
+					<form>
+						<div class="form-group">
+							<font color="white" ><b><label for="DiscordName">Discord Username :</label>
+							</b></font>
+							<input type="text" class="form-control" id="DiscordName" placeholder="Example: Dec#4416" required>
+						</div>
+						<div class="form-group">
+							<font color="white" ><b><label for="Age">Age :</label>
+							</b></font>
+							<input type="text" class="form-control" id="Age" placeholder="20" required>
+						</div>
+						<div class="form-group">
+							<font color="white" ><b><label for="DiscordID">User ID : (<a href="https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-" target="_blank">Tutorial</a>)</label>
+							<input type="text" class="form-control" id="DiscordID" placeholder="2834892937972938" required>
+						</div>
+						<div class="form-group">
+							<font color="white" ><b><label id="timezone" for="UserTimezone">Timezone (Automatically Detected):</label>
+							<input type="text" class="form-control" id="UserTimezone" readonly>
+						</div>
+						<div class="form-group">
+							<font color="white" >
+								<b>
+									<label for="activity">On a scale of 1-10, how active can you be?</label>
+									<input type="range" class="custom-range" min="0" max="10" id="activity">
+									<label id="rangetext">5</label>
+									<script>
+										var slider = document.getElementById("activity");
+										var output = document.getElementById("rangetext");
+										output.innerHTML = slider.value;
+										
+										slider.oninput = function() {
+												output.innerHTML = this.value;
+										}
+									</script>
+								</b>
+							</font>
+						</div>
+						<div class="form-group">
+							<font color="white" ><b><label for="date">What date did you join KP? (This can be checked by using the command -whois in #bot-spam)</label>
+							</b></font>
+							<input type="text" class="form-control" id="date" placeholder="MM/DD/YYYY" required>
+						</div>
+						<div class="form-group">
+							<font color="white" ><b><label for="WhyMod">Why are you interested in joining our staff team?</label>
+							<textarea class="form-control" id="WhyMod" rows="3" required></textarea>
+						</div>
+						<div class="form-group">
+							<font color="white" ><b><label for="WhyChoose">Why should we choose you?</label>
+							<textarea class="form-control" id="WhyChoose" rows="3" required></textarea>
+						</div>
+						<div class="form-group">
+							<font color="white" ><b><label for="Experience">Do you have any previous in moderating communities? If so, please go into detail.&nbsp; </label>
+							<textarea class="form-control" id="Experience" rows="3" required></textarea>
+						</div>
+						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#confirmModal">
+						Submit
+						</button>
+						<div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<font color="black">
+											<h5 class="modal-title" id="confirmModalLabel">Are you sure?</h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+											</button>
+									</div>
+									<div class="modal-body">
+									Woah! Wait there, are you sure you want to submit this application? Once you've submitted, you will be unable to change any of your answers. Please ensure that everything is perfect before submitting!
+									</div></font>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-dismiss="modal">Go Back</button>
+										<button type="submit" class="btn btn-primary">Submit</button>
+										<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+										<script>
+											$(function() {
+											  $('#submit').on('click', function() {
+											    var name = $('#DiscordName').val() || 'Error';
+											var age = $('#Age').val() || 'Error';
+											var id = $('#DiscordID').val() || 'Error';
+											var timezone = $('#UserTimezone').val() || 'Error';
+											var activity = $('#activity').val() || 'Error';
+											var date = $('#date').val() || 'Error';
+											var whyjoin = $('#WhyMod').val() || 'Error';
+											var whychoose = $('#WhyChoose').val() || 'Error';
+											var experience = $('#Experience').val() || 'Error';
+											    // post
+											    var data = {
+											      'entry.1551023547': name,
+											      'entry.213299891': age,
+											      'entry.785701286': id,
+											      'entry.1826074867': timezone,
+											'entry.141730055': activity,
+											'entry.1194563633': date,
+											'entry.1474160331': whyjoin,
+											'entry.428696656': whychoose,
+											'entry.625649516': experience
+											    };
+											    $.ajax({
+											      type: 'POST',
+											      url: 'https://docs.google.com/forms/u/2/d/e/1FAIpQLSccANJLHkCh9rHDZAC13yBG9WdC0BdPActVz6ElaAS6Vp2laA/formResponse',
+											      data: data,
+											      contentType: 'application/json',
+											      dataType: 'jsonp',
+											      complete: function() {
+											      }
+											    });
+											  });
+											});
+										</script>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="col-xl-4 offset-xl-1"></div>
+			</div>
+		</center>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+		<script src="file:///C|/Users/decla/Desktop/js/jquery-3.4.1.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed --> 
+		<script src="file:///C|/Users/decla/Desktop/js/popper.min.js"></script>
+		<script src="file:///C|/Users/decla/Desktop/js/bootstrap-4.4.1.js"></script>
+	</body>
+</html>
+
