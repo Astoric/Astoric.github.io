@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Replace these with your actual GitHub Pages project names.
   const myGitHubPagesProjects = [
     { name: "DL Set Times", path: "download-set-times" },
-    { name: "Kink List", path: "plus" },
+    { name: "Kink List", path: "kinklist" },
     // Example: { name: "My Blog", path: "blog" },
     // Example: { name: "My Portfolio", path: "portfolio" },
     // Make sure 'path' matches your GitHub repository name exactly.
